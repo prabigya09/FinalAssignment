@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Student
+public class studentAssignmentResult
 {
   private String unitName;
   private List<Student> students = new ArrayList<>();
@@ -96,6 +96,88 @@ public void readDataFromFile( String fileName) {
              }
         }
         //Menu//
+         
+        public static void main(String[] args) {
+            AssignmentManager manager = new AssignmentManager();
+            Scanner scanner = new Scanner(System.in);
+            
+            System.out.println("");
+            manager.readDataFromFile(fileName);
+            
+            boolean running = true;
+            while (running) {
+                System.out.println("\nMenu:");
+                System.out.println("A. Total Marks:");
+                System.out.println("B. Total marks less than a certain threshold:  ");
+                System.out.println("C. Print top and bottom students: ");
+                System.out.println("D. Exist");
+                System.out.println("E. Your Choice:");
+                
+                int choice = scanner.nextInt();
+                
+                scanner.nextLine();
+                
+                switch (choices) {
+                    case 1:
+                        manager.calculateAndPrintTotalMarks();
+                        break;
+                        case 2:
+                            System.out.print(" Enter the threshold for total marks:");
+                            double threshold = scanner.nextDouble();
+                            manager.printStudentsBelowThreshold(threshold);
+                            break;
+                            case 3:
+                                System.out.println("Enter the number of top and bottom student:");
+                                int count = scanner.nextInt();
+                                manager.printTopAndBottomStudents(count);
+                                break;
+                                case 4:
+                                    running = false;
+                                    break;
+                                    default:
+                                        System.out.println("Invalid:");
+                                        
+                                
+                                
+                    
+                        
+                }
+    
+                
+                
+            }
+            scanner.close();
+            
+        }
+        
+        
+    }
+    
+    class Student {
+        private String lastName;
+        private String firstName;
+        private String studentID;
+        private double assignment1;
+        private double assignment2;
+        private double assignment3;
+        
+        public Studnet(String lastName, String firstName, String studentID, double assignment1, double assignment2, double assignment3) {
+            this.lastName = lastName;
+            this.firstName = firstName;
+            this.studentID = studentID;
+            this.assignment1 = assignment1;
+            this.assignment2 = assignment2;
+            this.assignment3 = assignment3;
+        }
+        
+        public double calculateTotalMarks() {
+            return assignment1 + assignment2 + assignment3;
+        }
+        
+        public String toString() {
+            return lastName + "\t" + firstName + "\t" + studentID + "\t" + assignment1 + "\t" + assignment2 + "\t" +assignment3;
+            
+        }
         
         
     }
