@@ -116,10 +116,14 @@ public void readDataFromFile( String fileName) {
                 switch (choice) {
                     case 1:
                         {
-                             System.out.print(" Enter the threshold for total marks:");
-                            double threshold = scanner.nextDouble();
-                            manager.printStudentsBelowThreshold(threshold);
-                            break;
+                             System.out.println("Name of Students in the list, studentID, assignment marks and total marks: ");
+            
+            for (Student student : students) {
+                double totalMark = student.calculateTotalMarks();
+                System.out.println(student + "\tTotal Mark: " + totalMark);
+                
+            }
+                        }
                     
                                 System.out.println("Enter the number of top and bottom student:");
                                 int count = scanner.nextInt();
