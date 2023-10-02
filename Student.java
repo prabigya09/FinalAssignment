@@ -14,8 +14,6 @@ public class Student
   private String firstName;
   private String lastName;
   private int studentID;
-  private String assignment1;
-  private String assignment2;
   private String assignment3;
   private double[] marks;
   private double totalMark;
@@ -47,7 +45,7 @@ public void readDataFromFile( String fileName) {
                     double assignment3 = Double.parseDouble(parts[5].trim());
                     
                     
-                    Student student = new Student(StringlastName,StringfirstName,StringstudentID,String assignment1,Stringassignment2,String assignment3);
+                    Student student = new Student(lastName, firstName, studentID, assignment1, assignment2, assignment3);
                     students.add(student);
                 }
                 }
@@ -72,6 +70,18 @@ public void readDataFromFile( String fileName) {
             }
         }
         
+        // to print the students below the threasold//
+        public void printStudentBelowThreshold(double threshold) {
+            System.out.println(" Students  total Marks" + threshold + ":");
+            for (Student student : students) {
+                double totalMark = student.calculateTotalMark();
+                if(totalMark < threshold) {
+                    System.out.println(student + "\tTotal Mark: " + totalMark);
+                }
+            }
+        }
+        
+        //to print the names of top and bottom students on the list//
         
     }
 
