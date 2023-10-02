@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 //F1:
-3...........
+
 public class studentAssignmentResult
 {
   private String unitName;
@@ -31,6 +31,12 @@ public void readDataFromFile( String fileName) {
             if(line.startsWith("last name")) {
                 continue;
             }
+            if (readUnitName) {
+                unitName = line;
+                readUnitName = false;
+                
+            } else {
+                
         }
     }
 }
