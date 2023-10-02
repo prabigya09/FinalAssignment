@@ -59,7 +59,7 @@ public void readDataFromFile( String fileName) {
             System.out.println("Name of Students in the list, studentID, assignment marks and total marks: ");
             
             for (Student student : students) {
-                double totalMark = student.calculateTotalMark();
+                double totalMark = student.calculateTotalMarks();
                 System.out.println(student + "\tTotal Mark: " + totalMark);
                 
             }
@@ -69,7 +69,7 @@ public void readDataFromFile( String fileName) {
         public void printStudentBelowThreshold(double threshold) {
             System.out.println(" Students  total Marks" + threshold + ":");
             for (Student student : students) {
-                double totalMark = student.calculateTotalMark();
+                double totalMark = student.calculateTotalMarks();
                 if(totalMark < threshold) {
                     System.out.println(student + "\tTotal Mark: " + totalMark);
                 }
@@ -78,7 +78,7 @@ public void readDataFromFile( String fileName) {
         
         //to print the names of top and bottom students on the list//
         public void printTopAndBottomStudents(int count) {
-            students.sort((s1, s2) -> Double.compare(s2.calculateTotalMark(), s1.calculateTotalMark()));
+            students.sort((s1, s2) -> Double.compare(s2.calculateTotalMarks(), s1.calculateTotalMarks()));
             System.out.println("Top" + count + " students:");
              for (int i = 0; i < count && i < students.size(); i++) {
                  System.out.println(students.get(i));
@@ -93,6 +93,7 @@ public void readDataFromFile( String fileName) {
         //Menu//
          
         public static void main(String[] args) {
+        
             AssignmentManager manager = new AssignmentManager();
             Scanner scanner = new Scanner(System.in);
             
@@ -112,7 +113,7 @@ public void readDataFromFile( String fileName) {
                 
                 scanner.nextLine();
                 
-                switch (choices) {
+                switch (choice) {
                     case 1:
                         manager.calculateAndPrintTotalMarks();
                         break;
