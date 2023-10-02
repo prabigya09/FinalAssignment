@@ -1,5 +1,7 @@
 
 
+
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,7 +18,7 @@ public class studentAssignmentResult
   //F1//
   
 public void readDataFromFile( String fileName) {
-    try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+    try(BufferedReader reader = new BufferedReader(new FileReader(Data.txt))) {
         String line;
         boolean readUnitName = true;
         while ((line = reader.readLine()) != null) {
@@ -51,57 +53,13 @@ public void readDataFromFile( String fileName) {
                     
                 }
             
-                
-        }
-        
-        //F2: To calculate and Print the total Marks//
-        public void calculateAndPrintTotalMarks() {
-            System.out.println("Name of Students in the list, studentID, assignment marks and total marks: ");
-            
-            for (Student student : students) {
-                double totalMark = student.calculateTotalMarks();
-                System.out.println(student + "\tTotal Mark: " + totalMark);
-                
-            }
-        }
-        
-        // to print the students below the threasold//
-        public void printStudentBelowThreshold(double threshold) {
-            System.out.println(" Students  total Marks" + threshold + ":");
-            for (Student student : students) {
-                double totalMark = student.calculateTotalMarks();
-                if(totalMark < threshold) {
-                    System.out.println(student + "\tTotal Mark: " + totalMark);
-                }
-            }
-        }
-        
-        //to print the names of top and bottom students on the list//
-        public void printTopAndBottomStudents(int count) {
-            students.sort((s1, s2) -> Double.compare(s2.calculateTotalMarks(), s1.calculateTotalMarks()));
-            System.out.println("Top" + count + " students:");
-             for (int i = 0; i < count && i < students.size(); i++) {
-                 System.out.println(students.get(i));
-             }
-             
-             System.out.println("\nButtom" + count + " students: ");
-             for (int i = students.size() - 1; i >= students.size() -count && i >= 0; i--) {
-                 System.out.println(students.get(i));
-                 
-             }
-        }
         //Menu//
          
-        public static void main(String[] args) {
         
            
             Scanner scanner = new Scanner(System.in);
-            
-            System.out.println("");
-            
-            
             boolean running = true;
-            while (running) {
+            while(running) {
                 System.out.println("\nMenu:");
                 System.out.println("A. Total Marks:");
                 System.out.println("B. Total marks less than a certain threshold:  ");
@@ -114,33 +72,52 @@ public void readDataFromFile( String fileName) {
                 scanner.nextLine();
                 
                 switch (choice) {
-                    
                     case 1:
-                    case 2:
                         {
-                             System.out.print(" Enter the threshold for total marks:");
-                            double threshold = scanner.nextDouble();
-                            manager.printStudentsBelowThreshold(threshold);
-                            break;
-                        }
-                    case 3:
-                        {
-                                System.out.println("Enter the number of top and bottom student:");
-                                int count = scanner.nextInt();
-                                
-                                break;
+                            System.out.println("Name of Students in the list, studentID, assignment marks and total marks: ");
+                            for (Student student : students) {
+                            double totalMark = student.calculateTotalMarks();
+                            System.out.println(student + "\tTotal Mark: " + totalMark);
                             }
+                          break;
+                        }
+                  case 2:{
+                    System.out.println("Enter the threshold.");
+                    double threshold = scanner.nextInt();
+                    System.out.println(" Students  total Marks" + threshold + ":");
+                    for (Student student : students) {
+                    double totalMark = student.calculateTotalMarks();
+                    if(totalMark < threshold) {
+                    System.out.println(student + "\tTotal Mark: " + totalMark);
+                    }
+                    }
+                    break;
+                  }
+                  case 3:
+                    {
+                    System.out.println("Enter the number of top and bottom student:");
+                                int count = scanner.nextInt();
+                                students.sort((s1, s2) -> Double.compare(s2.calculateTotalMarks(), s1.calculateTotalMarks()));
+            System.out.println("Top" + count + " students:");
+             for (int i = 0; i < count && i < students.size(); i++) {
+                 System.out.println(students.get(i));
+             }
+             System.out.println("\nButtom" + count + " students: ");
+             for (int i = students.size() - 1; i >= students.size() -count && i >= 0; i--) {
+                 System.out.println(students.get(i));
+                 
+             }
+                                break;
+                    }
+                  case 4:{
                                 
-                     case 4:
-                         {
-                             
-                         running = false;
+                                    running = false;}
                                     break;
-                                    default:
+                default:
                                         System.out.println("Invalid:");
                                 
                             }
-                        }
+        }
                        
                                         
                                 
@@ -148,13 +125,10 @@ public void readDataFromFile( String fileName) {
                     
                         
                 }
+            }
     
                 
-                
-            }
-         
             
-        }
         
         
     
@@ -185,8 +159,10 @@ public void readDataFromFile( String fileName) {
             
         }
         
-        
     }
+        
+        
+    
 
   
   
