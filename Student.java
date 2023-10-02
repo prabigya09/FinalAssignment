@@ -7,13 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class studentAssignmentResult
+public class Student
 {
   private String unitName;
   private List<Student> students = new ArrayList<>();
   private String firstName;
   private String lastName;
   private int studentID;
+  private String assignment1;
+  private String assignment2;
+  private String assignment3;
   private double[] marks;
   private double totalMark;
  
@@ -44,7 +47,7 @@ public void readDataFromFile( String fileName) {
                     double assignment3 = Double.parseDouble(parts[5].trim());
                     
                     
-                    Student student = new Student(lastName, firstName, studentID, assignment1, assignment2, assignment3);
+                    Student student = new Student(StringlastName,StringfirstName,StringstudentID,String assignment1,Stringassignment2,String assignment3);
                     students.add(student);
                 }
                 }
