@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class studentAssignmentMark
+public class Student
 {
   private String unitName;
   private List<Student> students = new ArrayList<>();
@@ -19,35 +19,6 @@ public class studentAssignmentMark
   private double totalMark;
  
   //F1//
-  class Student {
-      private String lastName;
-      private String firstName;
-      private String studentID;
-      private double assignment1;
-      private double assignment2;
-      private double assignment3;
-      
-      public Student(String lastName, String firstName, String studentID, double assignment1, double assignment2, double assignment3) {
-          this.lastName = lastName;
-          this.firstName = firstName;
-          this.studentID = studentID;
-          this.assignment1 = assignment1;
-          this.assignment2 = assignment2;
-          this.assignment3 = assignment3;
-      }
-      
-      public double calculateTotalMark() {
-          return assignment1 + assignment2 + assignment3;
-      }
-      
-      public String toString() {
-          return lastName + "\t" + firstName + "\t" + studentID + "\t" + assignment1 + "\t" + assignment2 + "\t" + assignment3;
-          
-              
-          }
-      }
-      
-  }
   
 public void readDataFromFile( String fileName) {
     try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -111,6 +82,21 @@ public void readDataFromFile( String fileName) {
         }
         
         //to print the names of top and bottom students on the list//
+        public void printTopAndBottomStudents(int count) {
+            students.sort((s1, s2) -> Double.compare(s2.calculateTotalMark(), s1.calculateTotalMark()));
+            System.out.println("Top" + count + " students:");
+             for (int i = 0; i < count && i < students.size(); i++) {
+                 System.out.println(students.get(i));
+             }
+             
+             System.out.println("\nButtom" + count + " students: ");
+             for (int i = students.size() - 1; i >= students.size() -count && i >= 0; i--) {
+                 System.out.println(students.get(i));
+                 
+             }
+        }
+        //Menu//
+        
         
     }
 
