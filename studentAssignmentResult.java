@@ -79,6 +79,7 @@ public void readDataFromFile( String fileName) {
                             double totalMark = student.calculateTotalMarks();
                             System.out.println(student + "\tTotal Mark: " + totalMark);
                             }
+                          break;
                         }
                   case 2:{
                     System.out.println("Enter the threshold.");
