@@ -94,11 +94,11 @@ public void readDataFromFile( String fileName) {
          
         public static void main(String[] args) {
         
-            AssignmentManager manager = new AssignmentManager();
+           
             Scanner scanner = new Scanner(System.in);
             
             System.out.println("");
-            manager.readDataFromFile(fileName);
+            
             
             boolean running = true;
             while (running) {
@@ -115,23 +115,25 @@ public void readDataFromFile( String fileName) {
                 
                 switch (choice) {
                     case 1:
-                        manager.calculateAndPrintTotalMarks();
-                        break;
-                        case 2:
-                            System.out.print(" Enter the threshold for total marks:");
+                        {
+                             System.out.print(" Enter the threshold for total marks:");
                             double threshold = scanner.nextDouble();
                             manager.printStudentsBelowThreshold(threshold);
                             break;
-                            case 3:
+                    
                                 System.out.println("Enter the number of top and bottom student:");
                                 int count = scanner.nextInt();
                                 manager.printTopAndBottomStudents(count);
                                 break;
-                                case 4:
+                                
                                     running = false;
                                     break;
                                     default:
                                         System.out.println("Invalid:");
+                                
+                            }
+                        }
+                       
                                         
                                 
                                 
