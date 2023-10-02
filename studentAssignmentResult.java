@@ -114,19 +114,27 @@ public void readDataFromFile( String fileName) {
                 scanner.nextLine();
                 
                 switch (choice) {
+                    
                     case 1:
+                    case 2:
                         {
                              System.out.print(" Enter the threshold for total marks:");
                             double threshold = scanner.nextDouble();
                             manager.printStudentsBelowThreshold(threshold);
                             break;
-                    
+                        }
+                    case 3:
+                        {
                                 System.out.println("Enter the number of top and bottom student:");
                                 int count = scanner.nextInt();
-                                manager.printTopAndBottomStudents(count);
-                                break;
                                 
-                                    running = false;
+                                break;
+                            }
+                                
+                     case 4:
+                         {
+                             
+                         running = false;
                                     break;
                                     default:
                                         System.out.println("Invalid:");
