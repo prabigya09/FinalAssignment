@@ -37,6 +37,20 @@ public void readDataFromFile( String fileName) {
                 
             } else {
                 
+                String[] parts = line.split("\t");
+                if (parts.length == 6) {
+                    String lastName = parts[0].trim();
+                    String firstName = parts[0].trim();
+                    String studentID = parts[0].trim();
+                    double assignment1 = Double.parseDouble(parts[3].trim());
+                    double assignment2 = Double.parseDouble(parts[4].trim());
+                    double assignment3 = Double.parseDouble(parts[5].trim());
+                }
+                }
+
+                }
+                }
+                
         }
     }
 }
