@@ -1,17 +1,12 @@
 
-/**
- * Write a description of class studentAssignmentResult here.
- *
- * @author (Prabigya)
- * @version (a version number or a date)
- */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-//F1:
+//F1://
 
 public class studentAssignmentResult
 {
@@ -37,6 +32,7 @@ public void readDataFromFile( String fileName) {
                 
             } else {
                 
+                // this line confirms that data line includes all expected fields (lastName,firstname, studentID, and 3 assignments score)//
                 String[] parts = line.split("\t");
                 if (parts.length == 6) {
                     String lastName = parts[0].trim();
@@ -45,16 +41,26 @@ public void readDataFromFile( String fileName) {
                     double assignment1 = Double.parseDouble(parts[3].trim());
                     double assignment2 = Double.parseDouble(parts[4].trim());
                     double assignment3 = Double.parseDouble(parts[5].trim());
+                    
+                    
+                    Student student = new Student(lastName, firstName, studentID, assignment1, assignment2, assignment3);
+                    students.add(student);
                 }
                 }
 
                 }
+                } catch (IOException e) {
+                    System.err.println("Error reading from the file: " + e.getMessage());
+                    
                 }
+            
                 
         }
+        
+        //F2//
     }
-}
+
   
   
   
-}
+
