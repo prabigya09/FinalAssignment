@@ -6,17 +6,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-//F1://
 
 public class studentAssignmentResult
 {
   private String unitName;
+  private List<Student> students = new ArrayList<>();
   private String firstName;
   private String lastName;
   private int studentID;
   private double[] marks;
   private double totalMark;
-  private List<Student> students = new ArrayList<>();
+ 
+  //F1//
   
 public void readDataFromFile( String fileName) {
     try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -57,7 +58,18 @@ public void readDataFromFile( String fileName) {
                 
         }
         
-        //F2//
+        //F2: To calculate and Print the total Marks//
+        public void calculateAndPrintTotalMarks() {
+            System.out.println("Name of Students in the list, studentID, assignment marks and total marks: ");
+            
+            for (Student student : students) {
+                double totalMark = student.calculateTotalMark();
+                System.out.println(student + "\tTotal Mark: " + totalMark);
+                
+            }
+        }
+        
+        
     }
 
   
