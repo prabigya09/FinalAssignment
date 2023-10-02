@@ -144,12 +144,12 @@ public void readDataFromFile( String fileName) {
                 
                 
             }
-            scanner.close();
+         
             
         }
         
         
-    }
+    
     
     class Student {
         private String lastName;
