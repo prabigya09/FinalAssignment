@@ -11,12 +11,7 @@ public class studentAssignmentResult
 {
   private String unitName;
   private List<Student> students = new ArrayList<>();
-  private String firstName;
-  private String lastName;
-  private int studentID;
-  private String assignment3;
-  private double[] marks;
-  private double totalMark;
+  
  
   //F1//
   
@@ -161,7 +156,7 @@ public void readDataFromFile( String fileName) {
         private double assignment2;
         private double assignment3;
         
-        public Studnet(String lastName, String firstName, String studentID, double assignment1, double assignment2, double assignment3) {
+        public Student(String lastName, String firstName, String studentID, double assignment1, double assignment2, double assignment3) {
             this.lastName = lastName;
             this.firstName = firstName;
             this.studentID = studentID;
