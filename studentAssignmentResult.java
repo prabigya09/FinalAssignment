@@ -17,7 +17,7 @@ public class studentAssignmentResult
 
   
 public void readDataFromFile( String fileName) {
-    try(BufferedReader reader = new BufferedReader(new FileReader(Data.txt))) {
+    try(BufferedReader reader = new BufferedReader(new FileReader("Data.txt"))) {
         String line;
         boolean readUnitName = true;
         while ((line = reader.readLine()) != null) {
