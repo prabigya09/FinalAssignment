@@ -14,8 +14,7 @@ public class studentAssignmentResult
   private String unitName;
   private List<Student> students = new ArrayList<>();
   
- 
-  //F1//
+
   
 public void readDataFromFile( String fileName) {
     try(BufferedReader reader = new BufferedReader(new FileReader(Data.txt))) {
@@ -53,7 +52,6 @@ public void readDataFromFile( String fileName) {
                     
                 }
             
-        //Menu//
          
         
            
